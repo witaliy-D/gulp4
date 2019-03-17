@@ -42,7 +42,7 @@ gulp.task('sass', function() {
   return gulp.src('src/scss/style.scss')
   .pipe(plumber())
   .pipe(sass({
-    includePaths: require('node-normalize-scss').includePaths
+	includePaths: ['node_modules']
   }))
    // .pipe(base64({                  //
    //     baseDir: 'src/scss/',        //
