@@ -3,28 +3,27 @@
 const gulp = require('gulp'),
       sass = require('gulp-sass'),
       autoprefixer = require('gulp-autoprefixer'),
-      cssnano = require('gulp-cssnano'),
+      cleancss = require('gulp-clean-css'),
       rename = require('gulp-rename'),
       uglify = require('gulp-uglify'),
       imagemin = require('gulp-imagemin'),
       del = require('del'),
-      mqpacker = require('css-mqpacker'),
+      mqpacker = require('@lipemat/css-mqpacker'),
       postcss = require('gulp-postcss'),
       server = require('browser-sync').create(),
       run = require('run-sequence'),
       plumber = require('gulp-plumber'),
-      base64 = require('gulp-inline-base64'),
       spritesmith = require('gulp.spritesmith'),
       merge = require('merge-stream'),
       svgstore = require('gulp-svgstore'),
       pngquant = require('imagemin-pngquant'),
       webstream = require('webpack-stream'),
-      responsive = require('gulp-responsive-images'),
+      //responsive = require('gulp-responsive'),
       webpack = require('webpack'),
       cheerio = require('gulp-cheerio'),
       replace = require('gulp-replace'),
       svgmin = require ('gulp-svgmin'),
-	  copy = require('gulp-copy'),
+	  //copy = require('gulp-copy'),
       cache = require('gulp-cache');
 
 gulp.task('clean', function() {
@@ -42,15 +41,12 @@ gulp.task('sass', function() {
   return gulp.src('src/scss/style.scss')
   .pipe(plumber())
   .pipe(sass({
-	//includePaths: ['node_modules']
+	//includePaths: ['node_modules'],
+      outputStyle: 'expanded'
   }))
-   // .pipe(base64({                  //
-   //     baseDir: 'src/scss/',        //
-   //     maxSize: 10 * 1024,         //    sprite!!!
-   //    debug: true                 //
-   // }))                             //
   .pipe(autoprefixer({
-    browsers: ['last 2 versions'],
+    grid: true,
+    overrideBrowserslist: ['last 2 versions'],
   }))
   .pipe(postcss([
     mqpacker({
@@ -58,7 +54,7 @@ gulp.task('sass', function() {
     })
   ]))
   .pipe(gulp.dest('dist/css'))
-  .pipe(cssnano())
+  .pipe(cleancss( {level: { 1: { specialComments: 0 } } }))
   .pipe(rename('style.min.css'))
   .pipe(gulp.dest('dist/css'))
   .pipe(server.stream());
@@ -99,9 +95,9 @@ gulp.task('sprite', function () {
     cssName: 'sprite.scss',
     imgPath: '../img/sprite.png',
     padding: 1
-  }))
+  }));
   const imgStream = spriteData.img
-  .pipe(gulp.dest('dist/img'))
+  .pipe(gulp.dest('dist/img'));
   const cssStream = spriteData.css
   .pipe(gulp.dest('src/scss'));
   return merge(imgStream, cssStream);
@@ -179,11 +175,11 @@ gulp.task('serve', function() {
 });
 
 
-gulp.task('responsive', function () {          //запуск вручную
-  gulp.src('src/images/*.{png,jreg,jpg}')
-  .pipe(responsive(require('./responsiveConfig.js')))
-  .pipe(gulp.dest('src/img'));
-});
+//gulp.task('responsive', function () {          //запуск вручную
+ // gulp.src('src/images/*.{png,jreg,jpg}')
+ // .pipe(responsive(require('./responsiveConfig.js')))
+ // .pipe(gulp.dest('src/img'));
+//});
 
 
 gulp.task('build', gulp.series('clean', 'sprite', gulp.parallel('imgs', 'symbols', 'fonts', 'html', 'sass', 'webStream')));
