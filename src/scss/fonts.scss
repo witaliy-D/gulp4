@@ -1,4 +1,4 @@
-
+/*
 @font-face {
     font-family: 'Open Sans';
     src: local('Open Sans'), local('OpenSans'), url('../fonts/open-sans/opensans.woff2') format('woff2'), url('../fonts/open-sans/opensans.woff') format('woff'), url('../fonts/open-sans/opensans.ttf') format('truetype');
@@ -25,5 +25,38 @@
     src: local('Open Sans Extrabold'), local('OpenSans-Extrabold'), url('../fonts/open-sans/opensansextrabold.woff2') format('woff2'), url('../fonts/open-sans/opensansextrabold.woff') format('woff'), url('../fonts/open-sans/opensansextrabold.ttf') format('truetype');
     font-weight: 800;
     font-style: normal;
+}*/
+
+// font-weight helper:
+
+// 100 Extra Light or Ultra Light;
+// 200 Light or Thin;
+// 300 Book or Demi;
+// 400 Regular or Normal;
+// 500 Medium;
+// 600 Semibold or Demibold;
+// 700 Bold;
+// 800 Black or Extra Bold or Heavy;
+// 900 Extra Black or Fat or Ultra Black
+
+
+@mixin font($f-name, $f-style, $f-weight, $f-url) {
+  @font-face {
+    font-family: $f-name;
+    font-style: $f-style;
+    font-weight: $f-weight;
+    src: url($f-url) format('woff2')
+  }
 }
 
+
+@include font('Roboto', normal, 400, '../fonts/roboto/roboto-regular-webfont.woff2')
+@include font('Roboto', italic, 400, '../fonts/roboto/roboto-italic-webfont.woff2')
+@include font('Roboto', normal, 700, '../fonts/roboto/roboto-bold-webfont.woff2')
+@include font('Roboto', italic, 700, '../fonts/roboto/roboto-bolditalic-webfont.woff2')
+
+
+@include font('Open Sans', normal, 400, '../fonts/open-sans/opensans-regular-webfont.woff2')
+@include font('Open Sans', normal, 600, '../fonts/open-sans/opensans-semibold-webfont.woff2')
+@include font('Open Sans', normal, 700, '../fonts/open-sans/opensans-bold-webfont.woff2')
+@include font('Open Sans', normal, 800, '../fonts/open-sans/opensans-extrabold-webfont.woff2')

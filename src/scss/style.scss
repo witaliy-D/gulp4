@@ -1,4 +1,4 @@
-@import "node_modules/normalize.css/normalize";           // закоментировать если не нужен
+//@import "node_modules/normalize.css/normalize";           // закоментировать если не нужен
 
 //$fa-font-path: "../fonts/font-awesome";                 // закоментировать если не нужен
 //@import "node_modules/font-awesome/scss/font-awesome";  // закоментировать если не нужен
@@ -6,15 +6,17 @@
 //@import "custom.scss";                                 // закоментировать если не нужен
 //@import "node_modules/bootstrap/scss/bootstrap";       // закоментировать если не нужен
 
-@import "variables.scss";
-@import "mixins.scss";
+@import "node_modules/bootstrap/scss/bootstrap-reboot";
 
-@import "sprite.scss";
+@import "variables";
+@import "mixins";
 
-@import "fonts.scss";
+@import "sprite";
 
-@import "blocks/scaffolding.scss";
-@import "blocks/site-header.scss";
+@import "fonts";
 
-@import "blocks/site-content.scss";
-@import "blocks/site-footer.scss";
+@import "blocks/scaffolding";
+@import "blocks/site-header";
+
+@import "blocks/site-content";
+@import "blocks/site-footer";
