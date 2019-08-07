@@ -1,8 +1,8 @@
-svg4everybody();    // fix
+//svg4everybody();    // fix
 
 //import "bootstrap";
 
-import main from './main';
+//import main from './main';
 
 
 
