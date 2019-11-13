@@ -1,8 +1,19 @@
 const webpack = require('webpack'),
       path = require('path');
+	  
+const NODE_ENV = process.env.NODE_ENV;	  
+const isDebug = NODE_ENV !== 'production';
+let mode = "";
 
+if (isDebug){
+	mode = 'development' 
+}else {
+	mode = 'production'
+}; 
+
+	
 module.exports = {
-
+	mode : mode,
   context: path.resolve(__dirname, 'src'),
 
   entry: {
@@ -43,3 +54,5 @@ module.exports = {
     })
   ]
 };
+
+

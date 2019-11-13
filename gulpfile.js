@@ -82,7 +82,7 @@ gulp.task('scripts', function() {
 gulp.task('webStream', function() {
   return gulp.src('src/js/app.js')
   .pipe(plumber())
-  .pipe(webstream(require('./webpack.config.js'), webpack))
+  .pipe(webstream(require('./webpack.config.js'),  webpack))
   .pipe(gulp.dest('dist/js'))
   .pipe(server.stream());
 });
@@ -171,8 +171,8 @@ gulp.task('serve', function() {
   });
   gulp.watch('src/scss/**/*.scss', gulp.parallel('sass'));
   gulp.watch('src/*.html', gulp.parallel('html'));
-  gulp.watch('src/js/*.js', gulp.parallel('scripts'));
-  //gulp.watch('src/js/**/*.js', gulp.parallel('webStream'));
+  //gulp.watch('src/js/*.js', gulp.parallel('scripts'));
+  gulp.watch('src/js/**/*.js', gulp.parallel('webStream'));
   gulp.watch('src/img/**/*', gulp.parallel('imagesWatch'));
   gulp.watch('src/fonts/**/*', gulp.parallel('fonts'));
 });
@@ -185,6 +185,6 @@ gulp.task('serve', function() {
 //});
 
 
-//gulp.task('build', gulp.series('clean', 'sprite', gulp.parallel('imgs', 'symbols', 'fonts', 'html', 'sass', 'webStream')));
-gulp.task('build', gulp.series('clean', 'sprite', gulp.parallel('imgs', 'symbols', 'fonts', 'html', 'sass', 'scripts')));
+gulp.task('build', gulp.series('clean', 'sprite', gulp.parallel('imgs', 'symbols', 'fonts', 'html', 'sass', 'webStream')));
+//gulp.task('build', gulp.series('clean', 'sprite', gulp.parallel('imgs', 'symbols', 'fonts', 'html', 'sass', 'scripts')));
 
