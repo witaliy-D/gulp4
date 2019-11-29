@@ -11,7 +11,7 @@ const gulp = require('gulp'),
       mqpacker = require('@lipemat/css-mqpacker'),
       postcss = require('gulp-postcss'),
       server = require('browser-sync').create(),
-      run = require('run-sequence'),
+      //run = require('run-sequence'),
       plumber = require('gulp-plumber'),
       spritesmith = require('gulp.spritesmith'),
       merge = require('merge-stream'),
@@ -24,7 +24,7 @@ const gulp = require('gulp'),
       replace = require('gulp-replace'),
       svgmin = require ('gulp-svgmin'),
 	  //copy = require('gulp-copy'),
-	  concat = require('gulp-concat'),
+	  //concat = require('gulp-concat'),
       cache = require('gulp-cache');
 
 gulp.task('clean', function() {
@@ -70,7 +70,7 @@ gulp.task('fonts', function () {
 gulp.task('scripts', function() {
   return gulp.src('src/js/*.js')
   .pipe(plumber())
-  
+
    //.pipe(concat('script.min.js'))
   ////.pipe(gulp.dest('dist/js'))
   .pipe(uglify())
@@ -149,11 +149,19 @@ gulp.task('symbols', function() {
   .pipe(gulp.dest('dist/img'));
 });
 
+
+
+
+
+
+
+
+
 gulp.task('cleanImgs', function() {
   return del('dist/img');
 });
 
- 
+
 gulp.task('imagesWatch', gulp.series('cleanImgs', gulp.parallel('imgs', 'symbols', 'sprite')), function (done) {
     server.reload();
     done();

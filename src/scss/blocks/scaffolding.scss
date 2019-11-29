@@ -1,36 +1,41 @@
 body {
-  font-family: $font-family;
-  font-size: 22px;
+  font-size: 26px;
+  font-family: 'Open Sans', Arial, sans-serif;
   line-height: 33px;
   font-weight: 400;
   font-style: normal;
-  letter-spacing: -0.02em;
   color: $name-677482;
-  background-color:  $white;
+  background-color: $white !important;
+  //
 }
 
 img {
   max-width: 100%;
   height: auto;
+  width: calc(100% - 80px);
 }
 
-h1 {
+h1,
+h3 {
+  margin: 0;
   font-family: $font-family;
   font-size: 36px;
   line-height: 43px;
-  font-weight: normal;
-  margin: 0;
+  font-weight: 400;
+  box-shadow: 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, .8);
+
+  //box-shadow: none;
 }
 
 h2 {
+  margin: 0 auto;
+  max-width: 700px;
   font-family: $font-family;
   font-size: 32px;
   line-height: 43px;
-  font-weight: normal;
+  font-weight: 400;
   text-align: center;
   color: $name-315479;
-  max-width: 700px;
-  margin: 0 auto;
 }
 
 h3 {
@@ -52,12 +57,12 @@ h4 {
 }
 
 .visually-hidden {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	margin: -1px;
-	padding: 0;
-	border: 0;
-	clip: rect(0 0 0 0);
-	overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
 }

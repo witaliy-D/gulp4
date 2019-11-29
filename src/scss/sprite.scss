@@ -11,31 +11,31 @@
 // $spritesheet: width height image $spritesheet-sprites;
 $ins-name: 'ins';
 $ins-x: 26px;
-$ins-y: 0px;
+$ins-y: 0;
 $ins-offset-x: -26px;
-$ins-offset-y: 0px;
+$ins-offset-y: 0;
 $ins-width: 18px;
 $ins-height: 18px;
 $ins-total-width: 44px;
 $ins-total-height: 21px;
 $ins-image: '../img/sprite.png';
-$ins: (26px, 0px, -26px, 0px, 18px, 18px, 44px, 21px, '../img/sprite.png', 'ins', );
+$ins: (26px, 0, -26px, 0, 18px, 18px, 44px, 21px, '../img/sprite.png', 'ins');
 $quotes-name: 'quotes';
-$quotes-x: 0px;
-$quotes-y: 0px;
-$quotes-offset-x: 0px;
-$quotes-offset-y: 0px;
+$quotes-x: 0;
+$quotes-y: 0;
+$quotes-offset-x: 0;
+$quotes-offset-y: 0;
 $quotes-width: 25px;
 $quotes-height: 21px;
 $quotes-total-width: 44px;
 $quotes-total-height: 21px;
 $quotes-image: '../img/sprite.png';
-$quotes: (0px, 0px, 0px, 0px, 25px, 21px, 44px, 21px, '../img/sprite.png', 'quotes', );
+$quotes: (0, 0, 0, 0, 25px, 21px, 44px, 21px, '../img/sprite.png', 'quotes');
 $spritesheet-width: 44px;
 $spritesheet-height: 21px;
 $spritesheet-image: '../img/sprite.png';
-$spritesheet-sprites: ($ins, $quotes, );
-$spritesheet: (44px, 21px, '../img/sprite.png', $spritesheet-sprites, );
+$spritesheet-sprites: ($ins, $quotes);
+$spritesheet: (44px, 21px, '../img/sprite.png', $spritesheet-sprites);
 
 // The provided mixins are intended to be used with the array-like variables
 //
@@ -72,11 +72,13 @@ $spritesheet: (44px, 21px, '../img/sprite.png', $spritesheet-sprites, );
 @mixin sprite-position($sprite) {
   $sprite-offset-x: nth($sprite, 3);
   $sprite-offset-y: nth($sprite, 4);
-  background-position: $sprite-offset-x  $sprite-offset-y;
+
+  background-position: $sprite-offset-x $sprite-offset-y;
 }
 
 @mixin sprite-image($sprite) {
   $sprite-image: nth($sprite, 9);
+
   background-image: url(#{$sprite-image});
 }
 
@@ -94,6 +96,7 @@ $spritesheet: (44px, 21px, '../img/sprite.png', $spritesheet-sprites, );
 @mixin sprites($sprites) {
   @each $sprite in $sprites {
     $sprite-name: nth($sprite, 10);
+
     .#{$sprite-name} {
       @include sprite($sprite);
     }

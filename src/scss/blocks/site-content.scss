@@ -4,10 +4,11 @@
   height: 22px;
 
   &::before {
+    content: '';
     position: absolute;
-    content: "";
     top: 25px;
     left: 15px;
+
     @include sprite($quotes);
   }
 }

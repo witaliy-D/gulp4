@@ -1,17 +1,15 @@
 const webpack = require('webpack'),
       path = require('path');
-	  
-const NODE_ENV = process.env.NODE_ENV;	  
+
+const NODE_ENV = process.env.NODE_ENV;
 const isDebug = NODE_ENV !== 'production';
-let mode = "";
+let mode = "production";
 
 if (isDebug){
-	mode = 'development' 
-}else {
-	mode = 'production'
-}; 
+	mode = 'development'
+}
 
-	
+
 module.exports = {
 	mode : mode,
   context: path.resolve(__dirname, 'src'),

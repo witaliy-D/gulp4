@@ -39,7 +39,6 @@
 // 800 Black or Extra Bold or Heavy;
 // 900 Extra Black or Fat or Ultra Black
 
-
 @mixin font($f-name, $f-style, $f-weight, $f-url, $f-url-2) {
   @font-face {
     font-family: $f-name;
@@ -49,14 +48,62 @@
   }
 }
 
-
-@include font('Roboto', normal, 400, '../fonts/roboto/roboto-regular-webfont.woff', '../fonts/roboto/roboto-regular-webfont.woff2')
-@include font('Roboto', italic, 400, '../fonts/roboto/roboto-italic-webfont.woff', '../fonts/roboto/roboto-italic-webfont.woff2')
-@include font('Roboto', normal, 700, '../fonts/roboto/roboto-bold-webfont.woff', '../fonts/roboto/roboto-bold-webfont.woff2')
-@include font('Roboto', italic, 700, '../fonts/roboto/roboto-bolditalic-webfont.woff', '../fonts/roboto/roboto-bolditalic-webfont.woff2')
-
-
-@include font('Open Sans', normal, 400, '../fonts/open-sans/opensans-regular-webfont.woff', '../fonts/open-sans/opensans-regular-webfont.woff2')
-@include font('Open Sans', normal, 600, '../fonts/open-sans/opensans-semibold-webfont.woff', '../fonts/open-sans/opensans-semibold-webfont.woff2')
-@include font('Open Sans', normal, 700, '../fonts/open-sans/opensans-bold-webfont.woff', '../fonts/open-sans/opensans-bold-webfont.woff2')
-@include font('Open Sans', normal, 800, '../fonts/open-sans/opensans-extrabold-webfont.woff', '../fonts/open-sans/opensans-extrabold-webfont.woff2')
+@include font(
+  'Roboto',
+  normal,
+  400,
+  '../fonts/roboto/roboto-regular-webfont.woff',
+  '../fonts/roboto/roboto-regular-webfont.woff2'
+);
+@include font(
+  'Roboto',
+  italic,
+  400,
+  '../fonts/roboto/roboto-italic-webfont.woff',
+  '../fonts/roboto/roboto-italic-webfont.woff2'
+);
+@include font(
+  'Roboto',
+  normal,
+  700,
+  '../fonts/roboto/roboto-bold-webfont.woff',
+  '../fonts/roboto/roboto-bold-webfont.woff2'
+);
+@include font(
+  'Roboto',
+  italic,
+  700,
+  '../fonts/roboto/roboto-bolditalic-webfont.woff',
+  '../fonts/roboto/roboto-bolditalic-webfont.woff2'
+);
+@include font(
+    'Open Sans',
+    normal,
+    400,
+    '../fonts/open-sans/opensans-regular-webfont.woff',
+    '../fonts/open-sans/opensans-regular-webfont.woff2'
+  )
+  @include
+  font(
+    'Open Sans',
+    normal,
+    600,
+    '../fonts/open-sans/opensans-semibold-webfont.woff',
+    '../fonts/open-sans/opensans-semibold-webfont.woff2'
+  )
+  @include
+  font(
+    'Open Sans',
+    normal,
+    700,
+    '../fonts/open-sans/opensans-bold-webfont.woff',
+    '../fonts/open-sans/opensans-bold-webfont.woff2'
+  )
+  @include
+  font(
+    'Open Sans',
+    normal,
+    800,
+    '../fonts/open-sans/opensans-extrabold-webfont.woff',
+    '../fonts/open-sans/opensans-extrabold-webfont.woff2'
+  );
