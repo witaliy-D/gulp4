@@ -1,6 +1,7 @@
 {
   "syntax": "scss",
   "defaultSeverity": "error",
+  "ignoreFiles": ["./src/scss/style.scss"],
   "rules": {
     "block-no-empty": true,
     "color-named": "never",
