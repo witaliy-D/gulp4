@@ -9,9 +9,15 @@
     "declaration-block-no-duplicate-properties": true,
     "declaration-block-no-shorthand-property-overrides": true,
     "declaration-property-value-blacklist": {
-      "/^margin/": ["initial"],
-      "/^padding/": ["initial"],
-      "flex-grow": ["initial"]
+      "/^margin/": [
+        "initial"
+      ],
+      "/^padding/": [
+        "initial"
+      ],
+      "flex-grow": [
+        "initial"
+      ]
     },
     "function-calc-no-unspaced-operator": true,
     "function-linear-gradient-no-nonstandard-direction": true,
@@ -23,7 +29,10 @@
     "selector-pseudo-class-no-unknown": [
       true,
       {
-        "ignorePseudoClasses": ["global", "local"]
+        "ignorePseudoClasses": [
+          "global",
+          "local"
+        ]
       }
     ],
     "shorthand-property-no-redundant-values": true,

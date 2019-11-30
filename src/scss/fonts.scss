@@ -42,8 +42,8 @@
 @mixin font($f-name, $f-style, $f-weight, $f-url, $f-url-2) {
   @font-face {
     font-family: $f-name;
-    font-style: $f-style;
     font-weight: $f-weight;
+    font-style: $f-style;
     src: url($f-url) format('woff'), url($f-url-2) format('woff2');
   }
 }

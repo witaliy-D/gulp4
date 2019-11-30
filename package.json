@@ -26,6 +26,7 @@
     "gulp-rename": "^1.4.0",
     "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.0.2",
+    "gulp-stylelint": "^10.0.0",
     "gulp-svgmin": "^2.2.0",
     "gulp-svgstore": "^7.0.1",
     "gulp-uglify": "^3.0.2",
@@ -41,6 +42,7 @@
     "stylelint-config-prettier": "^7.0.0",
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-order": "^3.1.1",
+    "stylelint-prettier": "^1.1.1",
     "stylelint-scss": "^3.13.0",
     "webpack": "^4.41.2",
     "webpack-stream": "^5.2.1"
@@ -56,7 +58,8 @@
   "scripts": {
     "build": "gulp build",
     "start": "npm run build && gulp serve",
-    "prod": "cross-env NODE_ENV=production npm-run-all build"
+    "prod": "cross-env NODE_ENV=production npm-run-all build",
+    "lint": "stylelint src/scss/**/*.scss --fix --config .stylelintrc-format"
   },
   "husky": {
     "hooks": {
@@ -67,7 +70,7 @@
   "lint-staged": {
     "**/*.scss": [
       "prettier --write",
-      "stylelint --syntax=scss --fix --config ./.stylelintrc-format",
+      "stylelint --fix --config ./.stylelintrc-format",
       "git add"
     ]
   }
