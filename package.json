@@ -69,7 +69,7 @@
   },
   "lint-staged": {
     "**/*.scss": [
-      "prettier --write --ignore ./src/scss/style.scss",
+      "prettier --write",
       "stylelint --fix --config ./.stylelintrc-format",
       "git add"
     ]
