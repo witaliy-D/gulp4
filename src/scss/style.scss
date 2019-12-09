@@ -6,17 +6,18 @@
 //@import "custom.scss";                                 // закоментировать если не нужен
 //@import "node_modules/bootstrap/scss/bootstrap";       // закоментировать если не нужен
 
-@import 'node_modules/bootstrap/scss/bootstrap-reboot';
-@import 'variables';
-@import 'mixins';
-@import 'sprite';
+@import "helpers/variables";
+@import "helpers/mixins";
+
+@import "vendor/bootstrap";
 
 
+@import "base/fonts";
+@import "base/scaffolding";
+@import "base/sprite";
+
+@import "blocks/site-header";
+@import "blocks/site-content";
+@import "blocks/site-footer";
 
 
-
-@import 'fonts';
-@import 'blocks/scaffolding';
-@import 'blocks/site-header';
-@import 'blocks/site-content';
-@import 'blocks/site-footer';

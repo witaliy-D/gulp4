@@ -1,8 +1,13 @@
-//svg4everybody();    // fix
+/* eslint-env jquery*/
 
-//import "bootstrap";
+import svg4everybody from 'svg4everybody';
 
-//import main from './main';
+$(() => {
+	svg4everybody();
+});
+
+import './components/main';
+console.log(100);
 
 
 

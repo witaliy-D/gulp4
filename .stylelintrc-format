@@ -12,10 +12,7 @@
     "stylelint-order"
   ],
   "rules": {
-    "prettier/prettier": [true, {"singleQuote": true,
-                                   "bracketSpacing": false,
-                                   "trailingComma": "es5",
-                                   "printWidth": 100}],
+    "prettier/prettier": true,
     "at-rule-no-unknown": null,
     "scss/at-rule-no-unknown": true,
     "at-rule-empty-line-before": [

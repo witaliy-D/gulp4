@@ -1,0 +1,10 @@
+// custom scss
+$container-max-widths: (
+  sm: 500px,
+  md: 700px,
+  lg: 950px,
+  xl: 1140px,
+);
+
+@import 'node_modules/bootstrap/scss/bootstrap-reboot';
+@import 'node_modules/bootstrap/scss/grid';
