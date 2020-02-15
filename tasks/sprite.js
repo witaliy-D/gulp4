@@ -6,7 +6,7 @@ import merge from 'merge-stream';
 
 gulp.task('sprite', () => {
 	const spriteData = gulp.src('src/img/sprite/*')
-		.pipe(imagemin([imagemin.jpegtran({progressive: true}), pngquant()]))
+		.pipe(imagemin([imagemin.mozjpeg({progressive: true}), pngquant()]))
 		.pipe(spritesmith({
 			imgName: 'sprite.png',
 			cssName: 'sprite.scss',

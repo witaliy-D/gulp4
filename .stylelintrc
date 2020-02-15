@@ -1,14 +1,124 @@
 {
   "syntax": "scss",
   "defaultSeverity": "error",
-  "ignoreFiles": ["./src/scss/style.scss"],
+  "ignoreFiles": [
+    "./src/scss/style.scss"
+  ],
+  "plugins": [
+    "stylelint-scss",
+    "stylelint-selector-bem-pattern"
+  ],
   "rules": {
-    "block-no-empty": true,
-    "color-named": "never",
-    "color-no-invalid-hex": true,
-    "comment-no-empty": true,
-    "declaration-block-no-duplicate-properties": true,
-    "declaration-block-no-shorthand-property-overrides": true,
+    "plugin/selector-bem-pattern": [
+      {
+        "implicitComponents": true,
+        "componentName": "[-a-z]+",
+        "componentSelectors": {
+          "initial": "^(\\.{componentName}(__[a-z]+|--[-a-z0-9]+|__[-a-z]+--[-a-z0-9]+|.[-a-z]+|__[a-z]+.[-a-z]+)?)$",
+          "combined": "^.+$"
+        },
+        "ignoreSelectors": [
+          "^\\.(no-)?js(-modal-open)?$",
+          "a(\\[[a-z]+|:[a-z]+)?",
+          "h[1-6]",
+          "pre",
+          "blockquote",
+          "thead",
+          "tr",
+          "img",
+          "img",
+          "p",
+          "table",
+          "^&:empty",
+          "#{\\$[-a-z]+}__[-a-z]+",
+          "^\\*$"
+        ]
+      },
+      {
+        "severity": "warning",
+        "message": "Селектор не из имени файла или БЭМ-ошибка"
+      }
+    ],
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
+    "at-rule-no-vendor-prefix": [
+      true,
+      {
+        "message": "Для @-правил вендорные префиксы использовать не следует"
+      }
+    ],
+    "at-rule-semicolon-space-before": [
+      "never",
+      {
+        "message": "В @-правилах пробел перед символом ; недопустим"
+      }
+    ],
+    "at-rule-blacklist": [
+      ["extend"],
+      {
+      "message": "это @-правило в чёрном списке"
+      }
+    ],
+    "block-no-empty": [
+      true,
+      {
+        "message": "Пустые блоки запрещены"
+      }
+    ],
+    "color-hex-case": [
+      "lower",
+      {
+        "severity": "warning",
+        "message": "HEX-цвета нужно указывать строчными буквами"
+      }
+    ],
+    "color-named": [
+      "never",
+      {
+        "message": "Цвета ключевыми словами нельзя писать"
+      }
+    ],
+    "color-no-invalid-hex": [
+      true,
+      {
+        "message": "Ошибка в написании HEX-цвета"
+      }
+    ],
+    "color-hex-length": [
+      "long",
+      {
+        "message": "Не используйте короткую запись HEX-цвета"
+      }
+    ],
+    "comment-no-empty": [
+      true,
+      {
+        "message": "Пустой коммент нужно убрать"
+      }
+    ],
+    "declaration-no-important": [
+      true,
+      {
+        "severity": "warning",
+        "message": "Применяйте !important с осторожностью"
+      }
+    ],
+    "declaration-property-unit-blacklist": [
+      {
+        "font-size": ["pt"],
+        "/^animation/": ["ms"],
+        "/^padding/": ["%"]
+      },
+      {
+        "message": "Для этого свойства данные единицы измерения в чёрном списке"
+      }
+    ],
+    "unit-blacklist": [
+      ["mm","cm","in","pc"],
+      {
+        "message": "Эти единицы измерения запрещены"
+      }
+    ],
     "declaration-property-value-blacklist": {
       "/^margin/": [
         "initial"
@@ -20,23 +130,231 @@
         "initial"
       ]
     },
-    "function-calc-no-unspaced-operator": true,
-    "function-linear-gradient-no-nonstandard-direction": true,
-    "max-nesting-depth": 3,
-    "no-duplicate-selectors": true,
-    "property-no-unknown": true,
-    "selector-max-id": 0,
-    "selector-pseudo-element-no-unknown": true,
-    "selector-pseudo-class-no-unknown": [
+    "declaration-block-no-duplicate-properties": [
       true,
       {
-        "ignorePseudoClasses": [
-          "global",
-          "local"
+        "message": "Правила повторять не следует"
+      }
+    ],
+    "declaration-block-no-shorthand-property-overrides": [
+      true,
+      {
+        "message": "Это свойство перебивает другое"
+      }
+    ],
+    "declaration-block-semicolon-newline-before": [
+      "never-multi-line",
+      {
+        "message": "Перенос перед символом ; недопустим"
+      }
+    ],
+    "declaration-block-single-line-max-declarations": [
+      1,
+      {
+        "message": "На одной строке должно быть одно правило"
+      }
+    ],
+    "font-family-name-quotes": [
+      "always-where-recommended",
+      {
+        "message": "Название шрифта следует брать в кавычки"
+      }
+    ],
+    "font-family-no-duplicate-names": [
+      true,
+      {
+        "message": "Нельзя дублировать один и тот же шрифт"
+      }
+    ],
+    "font-family-no-missing-generic-family-keyword": [
+      true,
+      {
+        "message": "Необходимо указывать sans-serif или serif"
+      }
+    ],
+    "font-weight-notation": [
+      "numeric",
+      {
+        "message": "Необходимо указывать плотность шрифта цифрой",
+        "ignore": [
+          "relative"
         ]
       }
     ],
+    "function-calc-no-invalid": [
+      true,
+      {
+        "message": "недопустимое выражение в calc"
+      }
+    ],
+    "function-calc-no-unspaced-operator": [
+      true,
+      {
+        "message": "Оператор должен быть отделен одним пробелом"
+      }
+    ],
+    "function-linear-gradient-no-nonstandard-direction": [
+      true,
+      {
+        "message": "Синтаксис градиентов стандартен: https://goo.gl/ba4HEc"
+      }
+    ],
+    "function-max-empty-lines": [
+      0,
+      {
+        "message": "Пустых строк не должно быть в функциях"
+      }
+    ],
+
+    "function-url-quotes": [
+      "always",
+      {
+        "message": "url в кавычках"
+      }
+    ],
+    "max-nesting-depth": [
+      3,
+      {
+        "message": "Вложения боле 3 уровней — на тёмную сторону путь",
+        "severity": "warning"
+      }
+    ],
+    "indentation": [
+      2,
+      {
+        "message": "Использовать два пробела  для отступов"
+      }
+    ],
+    "media-feature-name-no-vendor-prefix": [
+      true,
+      {
+        "severity": "warning",
+        "message": "Использовать вендорные префиксы не следует"
+      }
+    ],
+    "media-feature-name-no-unknown": [
+      true,
+      {
+        "message": "Нет такого медиаусловия"
+      }
+    ],
+    "no-duplicate-selectors": [
+      true,
+      {
+        "message": "Один и тот же селектор не должен дублироваться"
+      }
+    ],
+    "no-duplicate-at-import-rules": [
+      true,
+      {
+        "message": "Не должно быть повторного импорта файла"
+      }
+    ],
+    "keyframe-declaration-no-important": [
+      true,
+      {
+        "message": "!important в keyframe некоторыми браузерами игнорируется"
+      }
+    ],
+    "no-empty-source": [
+      true,
+      {
+        "message": "Пустые файлы запрещены"
+      }
+    ],
+    "number-max-precision": [
+      6,
+      {
+        "message": "Максимум 6 символов после точки в десятичной дроби"
+      }
+    ],
+    "property-no-unknown": [
+      true,
+      {
+        "message": "Такого свойства не существует"
+      }
+    ],
+    "property-no-vendor-prefix": [
+      true,
+      {
+        "message": "Свойства с вендорными префиксами использовать не следует"
+      }
+    ],
+    "property-blacklist": [
+      ["text-rendering" ],
+      {
+        "message": "Свойство из чёрного списка"
+      }
+    ],
+    "unit-no-unknown": [
+      true,
+      {
+        "message": "Не существует таких единиц измерения"
+      }
+    ],
+    "string-no-newline": [
+      true,
+      {
+        "message": "В строчных данных не должно быть переносов"
+      }
+    ],
+    "time-min-milliseconds": [
+      100,
+      {
+      "message": "Время менее 100мс — нет смысла использовать"
+      }
+    ],
     "shorthand-property-no-redundant-values": true,
-    "string-no-newline": true
+    "value-list-comma-newline-before": [
+      "never-multi-line",
+      {
+        "message": "Значения свойств должны быть без переносов"
+      }
+    ],
+    "value-no-vendor-prefix": [
+      true,
+      {
+        "message": "Вендорные префиксы в значениях использовать не следует"
+      }
+    ],
+    "selector-attribute-quotes": [
+      "always",
+      {
+        "message": "В селекторе атрибута должны быть кавычки"
+      }
+    ],
+    "selector-attribute-operator-blacklist": [
+      [
+        "id"
+      ],
+      {
+        "message": "Для стилизации ID использовать нельзя"
+      }
+    ],
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "message": "Такого псевдокласса не существует"
+      }
+    ],
+    "selector-pseudo-element-no-unknown": [
+      true,
+      {
+        "message": "Такого псевдоэлемента не существует"
+      }
+    ],
+    "selector-type-no-unknown": [
+      true,
+      {
+        "message": "Такого селектора не существует"
+      }
+    ],
+    "selector-max-compound-selectors": [
+      3,
+      {
+        "severity": "warning",
+        "message": "Селектор более чем 3-составной запрещен"
+      }
+    ]
   }
 }

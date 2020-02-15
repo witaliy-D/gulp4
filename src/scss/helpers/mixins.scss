@@ -1,4 +1,5 @@
 @mixin clearfix() {
+  //noinspection Stylelint
   &::after {
     content: '';
     display: table;
